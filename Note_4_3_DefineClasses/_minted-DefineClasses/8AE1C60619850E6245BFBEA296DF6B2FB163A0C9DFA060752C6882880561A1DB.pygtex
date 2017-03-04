@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{class} \PYG{n+nc}{ClassName}\PYG{o}{\PYGZob{}}
+	\PYG{n}{field1}\PYG{o}{;}
+	\PYG{n}{field2}\PYG{o}{;}
+	\PYG{o}{...}
+
+	\PYG{n}{constructor1}
+	\PYG{n}{constructor2}
+	\PYG{o}{...}
+
+	\PYG{n}{method1}
+	\PYG{n}{method2}
+	\PYG{o}{...}
+\PYG{o}{\PYGZcb{}}
+\end{Verbatim}

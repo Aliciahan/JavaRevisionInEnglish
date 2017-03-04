@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{Date} \PYG{n}{d} \PYG{o}{=} \PYG{n}{harry}\PYG{o}{.}\PYG{n+na}{getHireDay}\PYG{o}{();}
+\PYG{k+kt}{double} \PYG{n}{tenYearsInMilliSeconds} \PYG{o}{=} \PYG{l+m+mi}{10} \PYG{o}{*} \PYG{l+m+mf}{365.25} \PYG{o}{*} \PYG{l+m+mi}{24} \PYG{o}{*} \PYG{l+m+mi}{60} \PYG{o}{*} \PYG{l+m+mi}{60} \PYG{o}{*} \PYG{l+m+mi}{1000}\PYG{o}{;}
+\PYG{n}{d}\PYG{o}{.}\PYG{n+na}{setTime}\PYG{o}{(}\PYG{n}{d}\PYG{o}{.}\PYG{n+na}{getTime}\PYG{o}{()} \PYG{o}{\PYGZhy{}} \PYG{o}{(}\PYG{k+kt}{long}\PYG{o}{)} \PYG{n}{tenYearsInMilliSeconds}\PYG{o}{);}
+\PYG{c+c1}{// let\PYGZsq{}s give Harry ten years of added seniority}
+\PYG{c+c1}{//In order to avoid this:}
+
+\PYG{k+kd}{public} \PYG{n}{Date} \PYG{n+nf}{getHireDay}\PYG{o}{()} \PYG{o}{\PYGZob{}}
+\PYG{k}{return} \PYG{o}{(}\PYG{n}{Date}\PYG{o}{)} \PYG{n}{hireDay}\PYG{o}{.}\PYG{n+na}{clone}\PYG{o}{();} \PYG{c+c1}{// Ok}
+\PYG{o}{\PYGZcb{}}
+\end{Verbatim}

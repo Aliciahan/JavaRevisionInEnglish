@@ -1,0 +1,360 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html xml:lang="fr" > 
+<head><title>Define Your Own Classes</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)"> 
+<!-- html --> 
+<meta name="src" content="DefineClasses.tex"> 
+<link rel="stylesheet" type="text/css" href="DefineClasses.css"> 
+</head><body 
+>
+   <div class="maketitle">
+                                                                                      
+                                                                                      
+                                                                                      
+                                                                                      
+
+<h2 class="titleHead">Define Your Own Classes</h2>
+             <div class="author" ><br /><br /><br /><br /><br /><br /><br /><br />
+<br />      <span 
+class="cmr-12x-x-120">HAN Xicun</span><br />
+<br /><span 
+class="cmtt-12x-x-120">xicun.han@gmail.com</span><br /><br /></div><br />
+<div class="date" ><span 
+class="cmr-12x-x-120">3 Mars 2017</span></div>
+   </div>
+                                                                                      
+                                                                                      
+   <h3 class="likesectionHead"><a 
+ id="x1-1000"></a>Table des matières</h3>
+   <div class="tableofcontents">
+   <span class="sectionToc" >1 <a 
+href="#x1-30001" id="QQ2-1-3">An Employee Class</a></span>
+<br />   <span class="sectionToc" >2 <a 
+href="#x1-40002" id="QQ2-1-5">Use of Multiple Source Files</a></span>
+<br />   <span class="sectionToc" >3 <a 
+href="#x1-50003" id="QQ2-1-6">Dissecting the Employee Class</a></span>
+<br />   <span class="sectionToc" >4 <a 
+href="#x1-60004" id="QQ2-1-7">First Steps with Constructors</a></span>
+<br />   <span class="sectionToc" >5 <a 
+href="#x1-70005" id="QQ2-1-8">Implicit and Explicit Parameters</a></span>
+<br />   <span class="sectionToc" >6 <a 
+href="#x1-80006" id="QQ2-1-9">Benefits of Encapsulation</a></span>
+   </div>
+                                                                                      
+                                                                                      
+   <h3 class="likesectionHead"><a 
+ id="x1-2000"></a>List of source codes</h3>
+   <div class="tableofcontents">
+   1 <a 
+href="#x1-3041r1">Example of Class Structure</a>
+<br />   2 <a 
+href="#x1-8031r2">Do not return Object Directly</a>
+   </div>
+<!--l. 51--><p class="indent" >
+                                                                                      
+                                                                                      
+<!--l. 65--><p class="indent" >
+                                                                                      
+                                                                                      
+   <h3 class="sectionHead"><span class="titlemark">1   </span> <a 
+ id="x1-30001"></a>An Employee Class</h3>
+<!--l. 69--><p class="noindent" >The form for a class definition in Java is<span class="frenchb-nbsp">&#x00A0;</span>: <br 
+class="newline" />
+                                                                                      
+                                                                                      
+<!--l. 71--><p class="indent" >   <a 
+ id="x1-3041r1"></a><hr class="float"><div class="float" 
+>
+                                                                                      
+                                                                                      
+<div class="fancyvrb" id="fancyvrb1"><a 
+ id="x1-3016r1"></a><span 
+class="cmr-6">1</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span id="textcolor1"><span 
+class="cmtt-12">class</span></span><span 
+class="cmtt-12">&#x00A0;</span><span id="textcolor2"><span 
+class="cmtt-12">ClassName</span></span><span id="textcolor3"><span 
+class="cmtt-12">{</span></span><br class="fancyvrb" /><a 
+ id="x1-3018r2"></a><span 
+class="cmr-6">2</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;        field1</span><span id="textcolor4"><span 
+class="cmtt-12">;</span></span><br class="fancyvrb" /><a 
+ id="x1-3020r3"></a><span 
+class="cmr-6">3</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;        field2</span><span id="textcolor5"><span 
+class="cmtt-12">;</span></span><br class="fancyvrb" /><a 
+ id="x1-3022r4"></a><span 
+class="cmr-6">4</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;        </span><span id="textcolor6"><span 
+class="cmtt-12">...</span></span><br class="fancyvrb" /><a 
+ id="x1-3024r5"></a><span 
+class="cmr-6">5</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><br class="fancyvrb" /><a 
+ id="x1-3026r6"></a><span 
+class="cmr-6">6</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;        constructor1</span>
+<br class="fancyvrb" /><a 
+ id="x1-3028r7"></a><span 
+class="cmr-6">7</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;        constructor2</span><br class="fancyvrb" /><a 
+ id="x1-3030r8"></a><span 
+class="cmr-6">8</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;        </span><span id="textcolor7"><span 
+class="cmtt-12">...</span></span><br class="fancyvrb" /><a 
+ id="x1-3032r9"></a><span 
+class="cmr-6">9</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><br class="fancyvrb" /><a 
+ id="x1-3034r10"></a><span 
+class="cmr-6">10</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;        method1</span><br class="fancyvrb" /><a 
+ id="x1-3036r11"></a><span 
+class="cmr-6">11</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;        method2</span><br class="fancyvrb" /><a 
+ id="x1-3038r12"></a><span 
+class="cmr-6">12</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;        </span><span id="textcolor8"><span 
+class="cmtt-12">...</span></span><br class="fancyvrb" /><a 
+ id="x1-3040r13"></a><span 
+class="cmr-6">13</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span id="textcolor9"><span 
+class="cmtt-12">}</span></span></div>
+ <div class="caption" 
+><span class="id">Listing 1: </span><span  
+class="content">Example of Class Structure</span></div><!--tex4ht:label?: x1-3041r1 -->
+                                                                                      
+                                                                                      
+   </div><hr class="endfloat" />
+<!--l. 98--><p class="indent" >   Details plus look at the example in File<span class="frenchb-nbsp">&#x00A0;</span>: <span 
+class="cmti-12">Employee.java</span><br 
+class="newline" />
+   <h3 class="sectionHead"><span class="titlemark">2   </span> <a 
+ id="x1-40002"></a>Use of Multiple Source Files</h3>
+<!--l. 103--><p class="noindent" >Importance<span class="frenchb-nbsp">&#x00A0;</span>: the order <br 
+class="newline" />
+<!--l. 105--><p class="indent" >
+       <ol  class="enumerate1" >
+       <li 
+  class="enumerate" id="x1-4002x1">looking for *.class
+       </li>
+       <li 
+  class="enumerate" id="x1-4004x2">if can not find *.class, it will find *.java and compile it.
+       </li>
+       <li 
+  class="enumerate" id="x1-4006x3">there is also a step of comparison with timestamp. if *.java has a timestamp newer
+       than *.class, it will also compile it before using.</li></ol>
+<!--l. 111--><p class="noindent" >
+   <h3 class="sectionHead"><span class="titlemark">3   </span> <a 
+ id="x1-50003"></a>Dissecting the Employee Class</h3>
+<!--l. 113--><p class="noindent" >Dissecting<span class="frenchb-nbsp">&#x00A0;</span>: cut up and analyse.<br 
+class="newline" />
+       <ul class="itemize1">
+       <li class="itemize"><span 
+class="cmbx-12">Filed</span><span class="frenchb-nbsp">&#x00A0;</span>: private
+       </li>
+       <li class="itemize"><span 
+class="cmbx-12">Method</span><span class="frenchb-nbsp">&#x00A0;</span>: public</li></ul>
+<!--l. 120--><p class="noindent" >
+   <h3 class="sectionHead"><span class="titlemark">4   </span> <a 
+ id="x1-60004"></a>First Steps with Constructors</h3>
+       <ul class="itemize1">
+       <li class="itemize">A constructor has the same name as the class.
+       </li>
+       <li class="itemize">A class can have more than one constructor.
+       </li>
+       <li class="itemize">A constructor can take zero, one or more parameters.
+       </li>
+       <li class="itemize">A constructor has no return value
+       </li>
+       <li class="itemize">A constructor is always called with the new operator.
+       </li></ul>
+                                                                                      
+                                                                                      
+<!--l. 131--><p class="noindent" >
+   <h3 class="sectionHead"><span class="titlemark">5   </span> <a 
+ id="x1-70005"></a>Implicit and Explicit Parameters</h3>
+       <ul class="itemize1">
+       <li class="itemize"><span 
+class="cmbx-12">Implicit Parameters</span><span class="frenchb-nbsp">&#x00A0;</span>: using <span 
+class="cmti-12">this </span>to refer to.
+       </li>
+       <li class="itemize">Explicit Parameters<span class="frenchb-nbsp">&#x00A0;</span>: In the parentheses after the method name.</li></ul>
+<!--l. 138--><p class="noindent" >
+   <h3 class="sectionHead"><span class="titlemark">6   </span> <a 
+ id="x1-80006"></a>Benefits of Encapsulation</h3>
+       <ul class="itemize1">
+       <li class="itemize"><span 
+class="cmti-12">private data field</span>
+       </li>
+       <li class="itemize"><span 
+class="cmti-12">public field accessors</span><span class="frenchb-nbsp">&#x00A0;</span>: get method
+       </li>
+       <li class="itemize"><span 
+class="cmti-12">public field mutator method</span><span class="frenchb-nbsp">&#x00A0;</span>: set method<br 
+class="newline" /></li></ul>
+<!--l. 146--><p class="noindent" ><span 
+class="cmbx-12">Attention to MUTABLE OBJECT</span><span class="frenchb-nbsp"><span 
+class="cmbx-12">&#x00A0;</span></span><span 
+class="cmbx-12">:</span><span class="frenchb-nbsp">&#x00A0;</span>: if we need to return a reference to a mutable
+object, it is better to <span 
+class="cmti-12">Clone </span>it first. <br 
+class="newline" />
+                                                                                      
+                                                                                      
+<!--l. 148--><p class="indent" >   <a 
+ id="x1-8031r2"></a><hr class="float"><div class="float" 
+>
+                                                                                      
+                                                                                      
+<div class="fancyvrb" id="fancyvrb2"><a 
+ id="x1-8014r1"></a><span 
+class="cmr-6">1</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;Date</span><span 
+class="cmtt-12">&#x00A0;d</span><span 
+class="cmtt-12">&#x00A0;</span><span id="textcolor10"><span 
+class="cmtt-12">=</span></span><span 
+class="cmtt-12">&#x00A0;harry</span><span id="textcolor11"><span 
+class="cmtt-12">.</span></span><span id="textcolor12"><span 
+class="cmtt-12">getHireDay</span></span><span id="textcolor13"><span 
+class="cmtt-12">();</span></span><br class="fancyvrb" /><a 
+ id="x1-8016r2"></a><span 
+class="cmr-6">2</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span id="textcolor14"><span 
+class="cmtt-12">double</span></span><span 
+class="cmtt-12">&#x00A0;tenYearsInMilliSeconds</span><span 
+class="cmtt-12">&#x00A0;</span><span id="textcolor15"><span 
+class="cmtt-12">=</span></span><span 
+class="cmtt-12">&#x00A0;</span><span id="textcolor16"><span 
+class="cmtt-12">10</span></span><span 
+class="cmtt-12">&#x00A0;</span><span id="textcolor17"><span 
+class="cmtt-12">*</span></span><span 
+class="cmtt-12">&#x00A0;</span><span id="textcolor18"><span 
+class="cmtt-12">365.25</span></span><span 
+class="cmtt-12">&#x00A0;</span><span id="textcolor19"><span 
+class="cmtt-12">*</span></span><span 
+class="cmtt-12">&#x00A0;</span><span id="textcolor20"><span 
+class="cmtt-12">24</span></span><span 
+class="cmtt-12">&#x00A0;</span><span id="textcolor21"><span 
+class="cmtt-12">*</span></span><span 
+class="cmtt-12">&#x00A0;</span><span id="textcolor22"><span 
+class="cmtt-12">60</span></span><span 
+class="cmtt-12">&#x00A0;</span><span id="textcolor23"><span 
+class="cmtt-12">*</span></span><span 
+class="cmtt-12">&#x00A0;</span><span id="textcolor24"><span 
+class="cmtt-12">60</span></span><span 
+class="cmtt-12">&#x00A0;</span><span id="textcolor25"><span 
+class="cmtt-12">*</span></span><span 
+class="cmtt-12">&#x00A0;</span><span id="textcolor26"><span 
+class="cmtt-12">1000</span></span><span id="textcolor27"><span 
+class="cmtt-12">;</span></span>
+<br class="fancyvrb" /><a 
+ id="x1-8018r3"></a><span 
+class="cmr-6">3</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;d</span><span id="textcolor28"><span 
+class="cmtt-12">.</span></span><span id="textcolor29"><span 
+class="cmtt-12">setTime</span></span><span id="textcolor30"><span 
+class="cmtt-12">(</span></span><span 
+class="cmtt-12">d</span><span id="textcolor31"><span 
+class="cmtt-12">.</span></span><span id="textcolor32"><span 
+class="cmtt-12">getTime</span></span><span id="textcolor33"><span 
+class="cmtt-12">()</span></span><span 
+class="cmtt-12">&#x00A0;</span><span id="textcolor34"><span 
+class="cmtt-12">-</span></span><span 
+class="cmtt-12">&#x00A0;</span><span id="textcolor35"><span 
+class="cmtt-12">(</span></span><span id="textcolor36"><span 
+class="cmtt-12">long</span></span><span id="textcolor37"><span 
+class="cmtt-12">)</span></span><span 
+class="cmtt-12">&#x00A0;tenYearsInMilliSeconds</span><span id="textcolor38"><span 
+class="cmtt-12">);</span></span>
+<br class="fancyvrb" /><a 
+ id="x1-8020r4"></a><span 
+class="cmr-6">4</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span id="textcolor39"><span 
+class="cmitt-10x-x-120">//</span><span 
+class="cmitt-10x-x-120">&#x00A0;let&#8217;s</span><span 
+class="cmitt-10x-x-120">&#x00A0;give</span><span 
+class="cmitt-10x-x-120">&#x00A0;Harry</span><span 
+class="cmitt-10x-x-120">&#x00A0;ten</span><span 
+class="cmitt-10x-x-120">&#x00A0;years</span><span 
+class="cmitt-10x-x-120">&#x00A0;of</span><span 
+class="cmitt-10x-x-120">&#x00A0;added</span><span 
+class="cmitt-10x-x-120">&#x00A0;seniority</span></span><br class="fancyvrb" /><a 
+ id="x1-8022r5"></a><span 
+class="cmr-6">5</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span id="textcolor40"><span 
+class="cmitt-10x-x-120">//In</span><span 
+class="cmitt-10x-x-120">&#x00A0;order</span><span 
+class="cmitt-10x-x-120">&#x00A0;to</span><span 
+class="cmitt-10x-x-120">&#x00A0;avoid</span><span 
+class="cmitt-10x-x-120">&#x00A0;this:</span></span>
+<br class="fancyvrb" /><a 
+ id="x1-8024r6"></a><span 
+class="cmr-6">6</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><br class="fancyvrb" /><a 
+ id="x1-8026r7"></a><span 
+class="cmr-6">7</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span id="textcolor41"><span 
+class="cmtt-12">public</span></span><span 
+class="cmtt-12">&#x00A0;Date</span><span 
+class="cmtt-12">&#x00A0;</span><span id="textcolor42"><span 
+class="cmtt-12">getHireDay</span></span><span id="textcolor43"><span 
+class="cmtt-12">()</span></span><span 
+class="cmtt-12">&#x00A0;</span><span id="textcolor44"><span 
+class="cmtt-12">{</span></span><br class="fancyvrb" /><a 
+ id="x1-8028r8"></a><span 
+class="cmr-6">8</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span id="textcolor45"><span 
+class="cmtt-12">return</span></span><span 
+class="cmtt-12">&#x00A0;</span><span id="textcolor46"><span 
+class="cmtt-12">(</span></span><span 
+class="cmtt-12">Date</span><span id="textcolor47"><span 
+class="cmtt-12">)</span></span><span 
+class="cmtt-12">&#x00A0;hireDay</span><span id="textcolor48"><span 
+class="cmtt-12">.</span></span><span id="textcolor49"><span 
+class="cmtt-12">clone</span></span><span id="textcolor50"><span 
+class="cmtt-12">();</span></span><span 
+class="cmtt-12">&#x00A0;</span><span id="textcolor51"><span 
+class="cmitt-10x-x-120">//</span><span 
+class="cmitt-10x-x-120">&#x00A0;Ok</span></span><br class="fancyvrb" /><a 
+ id="x1-8030r9"></a><span 
+class="cmr-6">9</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span id="textcolor52"><span 
+class="cmtt-12">}</span></span></div>
+ <div class="caption" 
+><span class="id">Listing 2: </span><span  
+class="content">Do not return Object Directly</span></div><!--tex4ht:label?: x1-8031r2 -->
+                                                                                      
+                                                                                      
+   </div><hr class="endfloat" />
+    
+</body></html> 
+
+                                                                                      
+                                                                                      
+                                                                                      
+
+

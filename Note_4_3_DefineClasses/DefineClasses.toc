@@ -1,0 +1,10 @@
+\select@language {french}
+\contentsline {section}{\numberline {1}An Employee Class}{4}{section.1}
+\contentsline {section}{\numberline {2}Use of Multiple Source Files}{4}{section.2}
+\contentsline {section}{\numberline {3}Dissecting the Employee Class}{4}{section.3}
+\contentsline {section}{\numberline {4}First Steps with Constructors}{4}{section.4}
+\contentsline {section}{\numberline {5}Implicit and Explicit Parameters}{5}{section.5}
+\contentsline {section}{\numberline {6}Benefits of Encapsulation}{5}{section.6}
+\contentsline {section}{\numberline {7}Class-based Access Privileges}{5}{section.7}
+\contentsline {section}{\numberline {8}Private Methods}{6}{section.8}
+\contentsline {section}{\numberline {9}Final Instance Fields}{6}{section.9}

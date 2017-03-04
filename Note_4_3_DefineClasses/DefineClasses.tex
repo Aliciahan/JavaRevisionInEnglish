@@ -1,0 +1,223 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[a4paper,top=1in,bottom=1in,left=1.25in,right=1.25in]{geometry}
+\usepackage{amsmath,latexsym,amssymb,stmaryrd}
+\usepackage{amsfonts,amsthm}
+\usepackage[utf8]{inputenc}
+\usepackage[OT1]{fontenc}
+\usepackage[french]{babel} % important pour la typographie et les cÃ©sures
+\usepackage{verbatim,alltt,bm}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage[myheadings]{fullpage}
+\setlength{\topmargin}{-1cm}
+\setlength{\textheight}{25cm}
+\usepackage[linewidth=1pt]{mdframed}
+\usepackage[section]{placeins}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage[titletoc]{appendix}
+\usepackage{framed}
+\usepackage{minted}
+\usepackage{listings}
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+\usepackage[figuresright]{rotating}
+
+
+\title{Define Your Own Classes}
+\author{\\\\\\\\\\\\\\\\\\HAN Xicun\\\\
+%Director : Christophe. Rosenberger\\\\
+%Informatique M2 , Science\\\\
+%University of CAEN \\\\
+\texttt{xicun.han@gmail.com}\\\\}
+\date{3 Mars 2017}
+
+
+\begin{document}
+	\pagestyle{empty}
+	\maketitle
+	\thispagestyle{empty}
+	\clearpage
+	%\pagebreak
+
+	\tableofcontents
+	\newpage
+	\renewcommand\listoflistingscaption{List of source codes}
+	\listoflistings
+
+	\thispagestyle{empty}
+	\newpage
+	\pagestyle{fancy}
+	\lhead{}
+	\chead{}
+	%\rhead{}
+	%\begin{abstract} \setcounter{page}{1}
+	%	Ã  remplir
+	%\end{abstract}
+	\pagebreak
+	\FloatBarrier
+
+%\begin{abstract}
+
+%\end{abstract}
+\newpage
+
+\section{An Employee Class}
+
+The form for a class definition in Java is : \\
+
+\begin{listing}[ht]
+ \begin{minted}[frame=lines,
+%framesep=2m,
+%baselinestretch=1.2,
+%bgcolor=LightGray,
+% fontsize=\footnotesize,
+linenos]{java}
+
+class ClassName{
+	field1;
+	field2;
+	...
+
+	constructor1
+	constructor2
+	...
+
+	method1
+	method2
+	...
+}
+ \end{minted}
+ \label{code:1}
+ \caption{Example of Class Structure}
+ \end{listing}
+ \FloatBarrier
+
+Details plus look at the example in File: \textit{Employee.java}\\
+
+
+\section{Use of Multiple Source Files}
+
+Importance : the order \\
+
+\begin{enumerate}
+	\item looking for *.class
+	\item if can not find *.class, it will find *.java and compile it.
+	\item there is also a step of comparison with timestamp. if *.java has a timestamp newer than *.class, it will also compile it before using.
+\end{enumerate}
+
+\section{Dissecting the Employee Class}
+
+{\color{orange}Dissecting:} cut up and analyse.\\
+
+\begin{itemize}
+	\item \textbf{Filed}: private
+	\item \textbf{Method}: public
+\end{itemize}
+
+\section{First Steps with Constructors}
+
+\begin{itemize}
+	\item [*] A constructor has the same name as the class.
+	\item [*] A class can have more than one constructor.
+	\item [*] A constructor can take zero, one or more parameters.
+	\item [*] A constructor has no return value
+	\item [*] A constructor is always called with the new operator.
+
+\end{itemize}
+
+\section{Implicit and Explicit Parameters}
+
+\begin{itemize}
+	\item[*] {\color{red}\textbf{Implicit Parameters}}: using \textit{this} to refer to.
+	\item[*] {\color{red}{Explicit Parameters}}: In the parentheses after the method name.
+\end{itemize}
+
+\section{Benefits of Encapsulation}
+
+\begin{itemize}
+	\item[*] {\color{red}\textit{private data field}}
+	\item[*] {\color{red}\textit{public field accessors}}: get method
+	\item[*] {\color{red}\textit{public field mutator method}}: set method\\
+\end{itemize}
+
+{\color{orange}{\textbf{Attention to MUTABLE OBJECT:}}} : if we need to return a reference to a mutable object, it is better to \textit{Clone} it first. \\
+
+\begin{listing}[ht]
+ \begin{minted}[frame=lines,
+%framesep=2m,
+%baselinestretch=1.2,
+%bgcolor=LightGray,
+% fontsize=\footnotesize,
+linenos]{java}
+
+Date d = harry.getHireDay();
+double tenYearsInMilliSeconds = 10 * 365.25 * 24 * 60 * 60 * 1000;
+d.setTime(d.getTime() - (long) tenYearsInMilliSeconds);
+// let's give Harry ten years of added seniority
+//In order to avoid this:
+
+public Date getHireDay() {
+return (Date) hireDay.clone(); // Ok
+}
+
+ \end{minted}
+ \label{code:2}
+ \caption{Do not return Object Directly}
+ \end{listing}
+ \FloatBarrier
+
+\section{Class-based Access Privileges}
+
+\begin{listing}[ht]
+ \begin{minted}[frame=lines,
+%framesep=2m,
+%baselinestretch=1.2,
+%bgcolor=LightGray,
+% fontsize=\footnotesize,
+linenos]{java}
+class Employee {
+...
+public boolean equals(Employee other) {
+	return name.equals(other.name);
+}
+}
+// A typical call:
+if (harry.equals(boss)) . . .
+ \end{minted}
+ \label{code:3}
+ \caption{Privilege Access}
+ \end{listing}
+ \FloatBarrier
+
+This method accesses the private fields of harry, which is not surprising. It also accesses the private fields of boss. This is legal because boss is an object of type Employee, and a method of the Employee class is permitted to access the private fields of any object of type Employee.\\
+
+\section{Private Methods}
+
+Typically, these helper methods should not be part of the public interface.\\
+
+\section{Final Instance Fields}
+
+define an instance field as final: a field must be initialized when the object is constructed.\\
+
+The final modifier is particularly useful for fields whose type is {\color{red}primitive} or an {\color{red}immutable class}. \\
+
+\textbf{immutable class}: if none of its methods ever mutate its objects. For example String. \\
+
+For mutable classes, the final modifier can be confusing. Consider  an example :
+\mint{java}|private final StringBuilder evaluations;|
+that is initialized in the Employee constructor as :
+\mint{java}|evaluations = new StringBuilder();|
+
+The final keyword merely means that the object reference stored in the evaluations variable will \textbf{never again refer to a different StringBuilder object}. But the object can be mutated\\
+
+\mint{java}|public void giveGoldStar() {evaluations.append(LocalDate.now() + ": Gold star!\n");}|
+
+
+
+%\bibliographystyle{IEEEtran}
+%\bibliography{biblio}
+
+\end{document}
